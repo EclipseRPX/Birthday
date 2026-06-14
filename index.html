@@ -9,18 +9,52 @@
 
 <link rel="stylesheet" href="style.css">
 
+<style>
+
+.typewriter{
+font-size:3rem;
+color:#ff4f8b;
+margin-bottom:20px;
+line-height:1.2;
+animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:768px){
+
+.typewriter{
+font-size:2.2rem;
+line-height:1.3;
+}
+
+.card{
+padding:25px;
+}
+
+}
+
+</style>
+
 </head>
 <body>
 
-<!-- Background Music -->
+<!-- Music -->
+
 <audio id="music" loop>
 <source src="sanamterikasam.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Floating Hearts -->
-<div id="hearts"></div>
-
-<!-- Welcome Card -->
+<!-- Main Card -->
 
 <div class="card">
 
@@ -38,7 +72,9 @@ Made with lots of love and best wishes 💖
 
 </p>
 
-<button class="btn" onclick="startSurprise()">
+<button
+class="btn"
+onclick="startSurprise()">
 
 Start Surprise 💖
 
@@ -48,7 +84,7 @@ Start Surprise 💖
 
 <script>
 
-/* Start Music + Go To Next Page */
+/* Start Music */
 
 function startSurprise(){
 
@@ -67,7 +103,7 @@ setTimeout(()=>{
 window.location.href =
 "birthday.html";
 
-},1000);
+},800);
 
 }
 
@@ -80,16 +116,16 @@ document.createElement("div");
 
 heart.classList.add("heart");
 
-heart.innerHTML = "💖";
+heart.innerHTML="💖";
 
-heart.style.left =
-Math.random()*100 + "vw";
+heart.style.left=
+Math.random()*100+"vw";
 
-heart.style.fontSize =
-(20 + Math.random()*30)+"px";
+heart.style.fontSize=
+(20+Math.random()*25)+"px";
 
-heart.style.animationDuration =
-(5 + Math.random()*5)+"s";
+heart.style.animationDuration=
+(5+Math.random()*5)+"s";
 
 document.body.appendChild(heart);
 
@@ -99,7 +135,7 @@ heart.remove();
 
 }
 
-setInterval(createHeart,300);
+setInterval(createHeart,400);
 
 </script>
 
