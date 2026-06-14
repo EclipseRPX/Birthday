@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Your Gift ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.gift-container{
+text-align:center;
+}
+
+.gift-box{
+
+font-size:150px;
+
+cursor:pointer;
+
+transition:.5s;
+
+animation:bounce 2s infinite;
+
+}
+
+.gift-box:hover{
+
+transform:scale(1.1);
+
+}
+
+.surprise{
+
+display:none;
+
+margin-top:25px;
+
+animation:fadeIn 1s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.burst-heart{
+
+position:fixed;
+
+font-size:25px;
+
+pointer-events:none;
+
+animation:burst 2s linear forwards;
+
+}
+
+@keyframes burst{
+
+0%{
+opacity:1;
+transform:translate(0,0) scale(1);
+}
+
+100%{
+opacity:0;
+transform:
+translate(
+var(--x),
+var(--y)
+)
+scale(1.8);
+}
+
+}
+
+#finalBtn{
+display:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<div class="gift-container">
+
+<div
+class="gift-box"
+id="giftBox"
+onclick="openGift()">
+
+🎁
+
+</div>
+
+<h2>
+Tap The Gift Box
+</h2>
+
+<div class="surprise" id="surprise">
+
+<h1>💖 Surprise 💖</h1>
+
+<p>
+
+Ziya,
+
+<br><br>
+
+You are one of the most beautiful parts
+of this world.
+
+<br><br>
+
+May your life always be filled with
+love, happiness and success.
+
+<br><br>
+
+Never stop smiling because your smile
+makes everything brighter. ✨
+
+<br><br>
+
+Happy Birthday ❤️
+
+</p>
+
+<a
+href="final.html"
+class="btn"
+id="finalBtn">
+
+Final Surprise 🌸
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* Open Gift */
+
+function openGift(){
+
+document.getElementById("giftBox")
+.innerHTML = "🎉";
+
+document.getElementById("surprise")
+.style.display = "block";
+
+document.getElementById("finalBtn")
+.style.display = "inline-block";
+
+createBurst();
+
+}
+
+/* Heart Burst */
+
+function createBurst(){
+
+for(let i=0;i<40;i++){
+
+const heart =
+document.createElement("div");
+
+heart.classList.add("burst-heart");
+
+heart.innerHTML =
+Math.random() > 0.5 ? "💖" : "💕";
+
+heart.style.left =
+window.innerWidth/2 + "px";
+
+heart.style.top =
+window.innerHeight/2 + "px";
+
+heart.style.setProperty(
+"--x",
+(Math.random()*600-300)+"px"
+);
+
+heart.style.setProperty(
+"--y",
+(Math.random()*600-300)+"px"
+);
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},2000);
+
+}
+
+}
+
+/* Floating Hearts */
+
+function createHeart(){
+
+const heart =
+document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="💖";
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.fontSize=
+(20+Math.random()*25)+"px";
+
+heart.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+setInterval(createHeart,350);
+
+</script>
+
+</body>
+</html>

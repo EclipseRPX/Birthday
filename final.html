@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ziya ❤️ Sahil</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* Rose Petals */
+
+.petal{
+position:fixed;
+top:-20px;
+font-size:25px;
+pointer-events:none;
+animation:fallPetal linear forwards;
+z-index:1;
+}
+
+@keyframes fallPetal{
+
+0%{
+transform:
+translateY(-20px)
+rotate(0deg);
+opacity:1;
+}
+
+100%{
+transform:
+translateY(110vh)
+rotate(720deg);
+opacity:0;
+}
+
+}
+
+/* Giant Heart */
+
+.giant-heart{
+
+font-size:140px;
+
+animation:pulseHeart 2s infinite;
+
+margin-bottom:20px;
+
+}
+
+@keyframes pulseHeart{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.2);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* Sparkles */
+
+.sparkle{
+
+position:fixed;
+
+font-size:18px;
+
+pointer-events:none;
+
+animation:sparkleAnim 3s linear forwards;
+
+}
+
+@keyframes sparkleAnim{
+
+0%{
+opacity:1;
+transform:scale(0);
+}
+
+50%{
+transform:scale(1.5);
+}
+
+100%{
+opacity:0;
+transform:scale(0);
+}
+
+}
+
+/* Final Text */
+
+.names{
+
+font-size:3rem;
+
+font-weight:bold;
+
+color:#ff4f8b;
+
+margin-bottom:15px;
+
+}
+
+.end-message{
+
+margin-top:20px;
+
+font-size:1.1rem;
+
+line-height:1.9;
+
+}
+
+.birthday-ending{
+
+margin-top:30px;
+
+font-size:2rem;
+
+color:#ff4f8b;
+
+animation:glow 2s infinite;
+
+}
+
+@keyframes glow{
+
+0%{
+text-shadow:0 0 10px #ff4f8b;
+}
+
+50%{
+text-shadow:
+0 0 20px #ff4f8b,
+0 0 40px #ffb6d5;
+}
+
+100%{
+text-shadow:0 0 10px #ff4f8b;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<div class="giant-heart">
+💖
+</div>
+
+<div class="names">
+Ziya ❤️ Sahil
+</div>
+
+<p class="end-message">
+
+Dear Ziya,
+
+<br><br>
+
+This little surprise was made especially for you.
+
+<br><br>
+
+On your birthday, I just want to wish you
+all the happiness, success and beautiful moments
+that life can offer.
+
+<br><br>
+
+May your smile always shine bright,
+your dreams come true,
+and your heart stay filled with joy.
+
+<br><br>
+
+Thank you for being such a wonderful person.
+
+<br><br>
+
+No matter where life takes us,
+I hope you always stay happy and blessed.
+
+<br><br>
+
+🌸 You are truly special. 🌸
+
+</p>
+
+<div class="birthday-ending">
+
+🎂 Happy Birthday Ziya ❤️ 🎂
+
+</div>
+
+</div>
+
+<script>
+
+/* Falling Rose Petals */
+
+function createPetal(){
+
+const petal =
+document.createElement("div");
+
+petal.classList.add("petal");
+
+petal.innerHTML = "🌹";
+
+petal.style.left =
+Math.random()*100+"vw";
+
+petal.style.fontSize =
+(20+Math.random()*15)+"px";
+
+petal.style.animationDuration =
+(5+Math.random()*5)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},10000);
+
+}
+
+setInterval(createPetal,300);
+
+/* Floating Hearts */
+
+function createHeart(){
+
+const heart =
+document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="💖";
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.fontSize=
+(20+Math.random()*25)+"px";
+
+heart.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+setInterval(createHeart,450);
+
+/* Sparkles */
+
+function createSparkle(){
+
+const sparkle =
+document.createElement("div");
+
+sparkle.classList.add("sparkle");
+
+sparkle.innerHTML = "✨";
+
+sparkle.style.left =
+Math.random()*100+"vw";
+
+sparkle.style.top =
+Math.random()*100+"vh";
+
+document.body.appendChild(sparkle);
+
+setTimeout(()=>{
+sparkle.remove();
+},3000);
+
+}
+
+setInterval(createSparkle,250);
+
+</script>
+
+</body>
+</html>

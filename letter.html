@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Letter For Ziya ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.envelope-container{
+text-align:center;
+}
+
+.envelope{
+
+font-size:140px;
+cursor:pointer;
+transition:.5s;
+animation:float 3s ease-in-out infinite;
+
+}
+
+.envelope:hover{
+transform:scale(1.1);
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+}
+
+.letter{
+
+display:none;
+margin-top:25px;
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.letter p{
+text-align:left;
+line-height:1.9;
+}
+
+#nextBtn{
+display:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<div class="envelope-container">
+
+<div class="envelope"
+onclick="openLetter()">
+
+💌
+
+</div>
+
+<h2>
+Tap The Envelope
+</h2>
+
+<div class="letter" id="letter">
+
+<h1>Dear Ziya ❤️</h1>
+
+<p>
+
+Happy Birthday to someone truly special.
+
+<br><br>
+
+Aaj ka din bahut special hai,
+kyunki aaj woh insaan is duniya mein aaya tha
+jo har cheez ko thoda aur beautiful bana deta hai.
+
+<br><br>
+
+Tumhari smile kisi bhi din ko better bana sakti hai.
+Tumhari kindness aur caring nature tumhe unique banata hai.
+
+<br><br>
+
+Main dua karta hoon ki tumhari zindagi
+hamesha happiness, success aur beautiful memories se bhari rahe.
+
+<br><br>
+
+Thank you for being such a wonderful person.
+
+<br><br>
+
+May all your dreams come true. ✨
+
+<br><br>
+
+With lots of love and best wishes,
+
+<br><br>
+
+❤️ Sahil
+
+</p>
+
+<a href="special.html"
+class="btn"
+id="nextBtn">
+
+Next ✨
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* Open Letter */
+
+function openLetter(){
+
+document
+.getElementById("letter")
+.style.display="block";
+
+document
+.getElementById("nextBtn")
+.style.display="inline-block";
+
+}
+
+/* Floating Hearts */
+
+function createHeart(){
+
+const heart =
+document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="💖";
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.fontSize=
+(20+Math.random()*25)+"px";
+
+heart.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+setInterval(createHeart,350);
+
+</script>
+
+</body>
+</html>

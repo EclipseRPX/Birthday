@@ -1,0 +1,286 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(
+135deg,
+#ffb6d5,
+#ffd6e7,
+#ffeaf4
+);
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+/* Floating Hearts */
+
+.heart{
+position:absolute;
+bottom:-50px;
+animation:floatHeart linear infinite;
+pointer-events:none;
+}
+
+@keyframes floatHeart{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* Glass Card */
+
+.card{
+width:90%;
+max-width:800px;
+padding:40px;
+border-radius:30px;
+
+background:rgba(255,255,255,.25);
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+0 8px 30px rgba(0,0,0,.1);
+
+text-align:center;
+
+animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+h1{
+font-size:3rem;
+color:#ff4f8b;
+margin-bottom:20px;
+}
+
+h2{
+color:#ff4f8b;
+margin-bottom:15px;
+}
+
+p{
+font-size:1.1rem;
+line-height:1.8;
+color:#444;
+}
+
+/* Buttons */
+
+.btn{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ff4f8b;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+text-decoration:none;
+
+transition:.3s;
+}
+
+.btn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 10px 20px rgba(255,79,139,.3);
+
+}
+
+/* Birthday Cake */
+
+.cake{
+
+font-size:120px;
+
+animation:bounce 2s infinite;
+
+cursor:pointer;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+}
+
+/* Gift Box */
+
+.gift{
+
+font-size:120px;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+.gift:hover{
+
+transform:rotate(10deg) scale(1.1);
+
+}
+
+/* Final Heart */
+
+.final-heart{
+
+font-size:80px;
+
+animation:pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.2);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* Typewriter */
+
+.typewriter{
+
+overflow:hidden;
+
+white-space:nowrap;
+
+border-right:4px solid #ff4f8b;
+
+animation:
+typing 4s steps(30,end),
+blink .8s infinite;
+
+}
+
+@keyframes typing{
+
+from{
+width:0;
+}
+
+to{
+width:100%;
+}
+
+}
+
+@keyframes blink{
+
+50%{
+border-color:transparent;
+}
+
+}
+
+/* Reasons Cards */
+
+.reason{
+
+background:white;
+
+padding:18px;
+
+border-radius:20px;
+
+margin:12px 0;
+
+box-shadow:
+0 4px 12px rgba(0,0,0,.08);
+
+transition:.3s;
+}
+
+.reason:hover{
+
+transform:translateY(-5px);
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+h1{
+font-size:2rem;
+}
+
+.card{
+padding:25px;
+}
+
+p{
+font-size:1rem;
+}
+
+.cake,
+.gift{
+font-size:90px;
+}
+
+}

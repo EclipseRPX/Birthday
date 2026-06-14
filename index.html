@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>For Ziya ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop id="music">
+<source src="Sanam Teri Kasam Ankit Tiwari 128 Kbps.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Floating Hearts -->
+<div id="hearts"></div>
+
+<!-- Main Card -->
+
+<div class="card">
+
+<h1 class="typewriter">
+A Special Surprise For Ziya ❤️
+</h1>
+
+<p>
+
+Someone made this with lots of love,
+care and beautiful wishes.
+
+<br><br>
+
+Today is all about you ✨
+
+</p>
+
+<a href="birthday.html"
+class="btn">
+
+Open Surprise 💖
+
+</a>
+
+</div>
+
+<script>
+
+/* Floating Hearts */
+
+function createHeart(){
+
+const heart =
+document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML = "💖";
+
+heart.style.left =
+Math.random()*100 + "vw";
+
+heart.style.fontSize =
+(20 + Math.random()*30)+"px";
+
+heart.style.animationDuration =
+(5 + Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+setInterval(createHeart,300);
+
+/* Try Autoplay Music */
+
+document.body.addEventListener(
+"click",
+()=>{
+document
+.getElementById("music")
+.play();
+},
+{once:true}
+);
+
+</script>
+
+</body>
+</html>
