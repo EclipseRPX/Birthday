@@ -5,6 +5,10 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 min-height:100vh;
 background:linear-gradient(
@@ -17,7 +21,8 @@ display:flex;
 justify-content:center;
 align-items:center;
 position:relative;
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 padding:20px;
 }
 
@@ -26,9 +31,9 @@ padding:20px;
 .heart{
 position:fixed;
 bottom:-50px;
+pointer-events:none;
 z-index:0;
 opacity:.7;
-pointer-events:none;
 animation:floatHeart linear infinite;
 }
 
@@ -42,7 +47,7 @@ opacity:0;
 }
 
 20%{
-opacity:.7;
+opacity:.8;
 }
 
 100%{
@@ -61,8 +66,8 @@ opacity:0;
 position:relative;
 z-index:10;
 
-width:90%;
-max-width:850px;
+width:95%;
+max-width:900px;
 
 padding:40px;
 
@@ -90,27 +95,28 @@ overflow:hidden;
 
 }
 
-/* Card Decorative Hearts */
+/* Decorative Hearts */
 
 .card::before{
 
-content:
-"💖 💕 💖 💕 💖";
+content:"💖 💕 💖 💕 💖";
 
 position:absolute;
 
-top:15px;
+top:10px;
 left:0;
 
 width:100%;
 
-font-size:40px;
+font-size:35px;
 
 opacity:.08;
 
 pointer-events:none;
 
 }
+
+/* Fade Animation */
 
 @keyframes fadeUp{
 
@@ -142,6 +148,8 @@ line-height:1.2;
 
 h2{
 
+font-size:2rem;
+
 color:#ff4f8b;
 
 margin-bottom:15px;
@@ -172,11 +180,12 @@ line-height:1.2;
 
 white-space:normal;
 
-word-wrap:break-word;
+word-break:break-word;
 
 border-right:none;
 
-animation:fadeUp 1.5s ease;
+animation:
+fadeUp 1.5s ease;
 
 }
 
@@ -213,10 +222,11 @@ transition:.3s;
 .btn:hover{
 
 transform:
-scale(1.08);
+translateY(-3px)
+scale(1.05);
 
 box-shadow:
-0 10px 20px
+0 10px 25px
 rgba(255,79,139,.3);
 
 }
@@ -225,12 +235,15 @@ rgba(255,79,139,.3);
 
 .cake{
 
-font-size:120px;
-
-cursor:pointer;
+font-size:130px;
 
 animation:
 bounce 2s infinite;
+
+filter:
+drop-shadow(
+0 0 15px rgba(255,79,139,.5)
+);
 
 }
 
@@ -250,11 +263,11 @@ transform:translateY(-15px);
 
 .gift{
 
-font-size:120px;
-
-cursor:pointer;
+font-size:130px;
 
 transition:.4s;
+
+cursor:pointer;
 
 }
 
@@ -293,7 +306,7 @@ transform:scale(1);
 
 }
 
-/* Reason Cards */
+/* Reasons */
 
 .reason{
 
@@ -321,7 +334,7 @@ translateY(-5px);
 
 }
 
-/* Scroll Support */
+/* Scroll Pages */
 
 .scroll-page{
 
@@ -331,46 +344,60 @@ overflow-y:auto;
 
 }
 
-/* Mobile Responsive */
+/* Custom Scrollbar */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#ff8ab8;
+border-radius:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#ffeaf4;
+}
+
+/* Mobile */
 
 @media(max-width:768px){
 
-h1,
-.typewriter{
-
-font-size:2.2rem;
-
-line-height:1.3;
-
+body{
+padding:15px;
 }
 
 .card{
-
 padding:25px;
+width:100%;
+}
 
-width:95%;
+h1,
+.typewriter{
+font-size:2.2rem;
+line-height:1.3;
+}
 
+h2{
+font-size:1.5rem;
 }
 
 p{
-
 font-size:1rem;
-
 }
 
 .cake,
 .gift{
-
 font-size:90px;
+}
 
+.final-heart{
+font-size:80px;
 }
 
 .btn{
-
 padding:14px 28px;
-
 font-size:15px;
-
 }
 
 }
@@ -381,15 +408,21 @@ font-size:15px;
 
 h1,
 .typewriter{
-
-font-size:1.9rem;
-
+font-size:1.8rem;
 }
 
 p{
-
 font-size:.95rem;
+}
 
+.btn{
+padding:12px 24px;
+font-size:14px;
+}
+
+.cake,
+.gift{
+font-size:80px;
 }
 
 }

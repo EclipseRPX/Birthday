@@ -18,11 +18,8 @@ text-align:center;
 .gift-box{
 
 font-size:150px;
-
 cursor:pointer;
-
 transition:.5s;
-
 animation:bounce 2s infinite;
 
 }
@@ -36,9 +33,7 @@ transform:scale(1.1);
 .surprise{
 
 display:none;
-
 margin-top:25px;
-
 animation:fadeIn 1s ease;
 
 }
@@ -60,11 +55,9 @@ transform:translateY(0);
 .burst-heart{
 
 position:fixed;
-
 font-size:25px;
-
 pointer-events:none;
-
+z-index:999;
 animation:burst 2s linear forwards;
 
 }
@@ -92,10 +85,29 @@ scale(1.8);
 display:none;
 }
 
+.opened{
+animation:none;
+transform:scale(1.2);
+}
+
+@media(max-width:768px){
+
+.gift-box{
+font-size:110px;
+}
+
+}
+
 </style>
 
 </head>
 <body>
+
+<!-- Background Music -->
+
+<audio id="music" loop>
+<source src="sanamterikasam.mp3" type="audio/mpeg">
+</audio>
 
 <div class="card">
 
@@ -111,16 +123,20 @@ onclick="openGift()">
 </div>
 
 <h2>
-Tap The Gift Box
+Tap The Gift Box 🎁
 </h2>
 
-<div class="surprise" id="surprise">
+<div
+class="surprise"
+id="surprise">
 
-<h1>💖 Surprise 💖</h1>
+<h1>
+💖 Surprise 💖
+</h1>
 
 <p>
 
-Ziya,
+Dear Ziya,
 
 <br><br>
 
@@ -139,7 +155,12 @@ makes everything brighter. ✨
 
 <br><br>
 
-Happy Birthday ❤️
+May every dream in your heart come true
+and may every day bring you joy.
+
+<br><br>
+
+🎂 Happy Birthday ❤️
 
 </p>
 
@@ -160,18 +181,42 @@ Final Surprise 🌸
 
 <script>
 
+/* Continue Music */
+
+window.addEventListener("load",()=>{
+
+if(
+localStorage.getItem("birthdayMusic")
+==="on"
+){
+
+document
+.getElementById("music")
+.play()
+.catch(()=>{});
+
+}
+
+});
+
 /* Open Gift */
 
 function openGift(){
 
-document.getElementById("giftBox")
-.innerHTML = "🎉";
+const gift =
+document.getElementById("giftBox");
 
-document.getElementById("surprise")
-.style.display = "block";
+gift.innerHTML="🎉";
 
-document.getElementById("finalBtn")
-.style.display = "inline-block";
+gift.classList.add("opened");
+
+document
+.getElementById("surprise")
+.style.display="block";
+
+document
+.getElementById("finalBtn")
+.style.display="inline-block";
 
 createBurst();
 
@@ -181,7 +226,7 @@ createBurst();
 
 function createBurst(){
 
-for(let i=0;i<40;i++){
+for(let i=0;i<50;i++){
 
 const heart =
 document.createElement("div");
@@ -189,22 +234,24 @@ document.createElement("div");
 heart.classList.add("burst-heart");
 
 heart.innerHTML =
-Math.random() > 0.5 ? "💖" : "💕";
+Math.random()>0.5
+? "💖"
+: "💕";
 
 heart.style.left =
-window.innerWidth/2 + "px";
+(window.innerWidth/2)+"px";
 
 heart.style.top =
-window.innerHeight/2 + "px";
+(window.innerHeight/2)+"px";
 
 heart.style.setProperty(
 "--x",
-(Math.random()*600-300)+"px"
+(Math.random()*700-350)+"px"
 );
 
 heart.style.setProperty(
 "--y",
-(Math.random()*600-300)+"px"
+(Math.random()*700-350)+"px"
 );
 
 document.body.appendChild(heart);

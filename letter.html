@@ -45,6 +45,7 @@ transform:translateY(-15px);
 display:none;
 margin-top:25px;
 animation:fadeIn 1s ease;
+
 }
 
 @keyframes fadeIn{
@@ -62,12 +63,31 @@ transform:translateY(0);
 }
 
 .letter p{
+
 text-align:left;
 line-height:1.9;
+
 }
 
 #nextBtn{
 display:none;
+}
+
+.opened{
+animation:none;
+transform:scale(1.1);
+}
+
+@media(max-width:768px){
+
+.envelope{
+font-size:100px;
+}
+
+.letter p{
+font-size:1rem;
+}
+
 }
 
 </style>
@@ -75,11 +95,19 @@ display:none;
 </head>
 <body>
 
+<!-- Background Music -->
+
+<audio id="music" loop>
+<source src="sanamterikasam.mp3" type="audio/mpeg">
+</audio>
+
 <div class="card">
 
 <div class="envelope-container">
 
-<div class="envelope"
+<div
+class="envelope"
+id="envelope"
 onclick="openLetter()">
 
 💌
@@ -87,12 +115,16 @@ onclick="openLetter()">
 </div>
 
 <h2>
-Tap The Envelope
+Tap The Envelope 💌
 </h2>
 
-<div class="letter" id="letter">
+<div
+class="letter"
+id="letter">
 
-<h1>Dear Ziya ❤️</h1>
+<h1>
+Dear Ziya ❤️
+</h1>
 
 <p>
 
@@ -116,11 +148,17 @@ hamesha happiness, success aur beautiful memories se bhari rahe.
 
 <br><br>
 
+Tum jahan bhi raho,
+hamesha muskuraati raho,
+kyunki tumhari smile duniya ko aur bhi khoobsurat bana deti hai. ✨
+
+<br><br>
+
 Thank you for being such a wonderful person.
 
 <br><br>
 
-May all your dreams come true. ✨
+May all your dreams come true.
 
 <br><br>
 
@@ -132,7 +170,8 @@ With lots of love and best wishes,
 
 </p>
 
-<a href="special.html"
+<a
+href="special.html"
 class="btn"
 id="nextBtn">
 
@@ -148,9 +187,35 @@ Next ✨
 
 <script>
 
+/* Continue Music */
+
+window.addEventListener("load",()=>{
+
+if(
+localStorage.getItem("birthdayMusic")
+==="on"
+){
+
+document
+.getElementById("music")
+.play()
+.catch(()=>{});
+
+}
+
+});
+
 /* Open Letter */
 
 function openLetter(){
+
+document
+.getElementById("envelope")
+.innerHTML="💖";
+
+document
+.getElementById("envelope")
+.classList.add("opened");
 
 document
 .getElementById("letter")

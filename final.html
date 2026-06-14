@@ -25,16 +25,12 @@ z-index:1;
 @keyframes fallPetal{
 
 0%{
-transform:
-translateY(-20px)
-rotate(0deg);
+transform:translateY(-20px) rotate(0deg);
 opacity:1;
 }
 
 100%{
-transform:
-translateY(110vh)
-rotate(720deg);
+transform:translateY(110vh) rotate(720deg);
 opacity:0;
 }
 
@@ -43,13 +39,9 @@ opacity:0;
 /* Giant Heart */
 
 .giant-heart{
-
 font-size:140px;
-
 animation:pulseHeart 2s infinite;
-
 margin-bottom:20px;
-
 }
 
 @keyframes pulseHeart{
@@ -71,15 +63,11 @@ transform:scale(1);
 /* Sparkles */
 
 .sparkle{
-
 position:fixed;
-
 font-size:18px;
-
 pointer-events:none;
-
 animation:sparkleAnim 3s linear forwards;
-
+z-index:1;
 }
 
 @keyframes sparkleAnim{
@@ -111,6 +99,8 @@ font-weight:bold;
 color:#ff4f8b;
 
 margin-bottom:15px;
+
+word-break:break-word;
 
 }
 
@@ -154,10 +144,67 @@ text-shadow:0 0 10px #ff4f8b;
 
 }
 
+/* Replay Button */
+
+.replay-btn{
+
+margin-top:25px;
+
+display:inline-block;
+
+animation:pulseButton 2s infinite;
+
+}
+
+@keyframes pulseButton{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.giant-heart{
+font-size:100px;
+}
+
+.names{
+font-size:2rem;
+}
+
+.birthday-ending{
+font-size:1.5rem;
+}
+
+.end-message{
+font-size:1rem;
+line-height:1.8;
+}
+
+}
+
 </style>
 
 </head>
 <body>
+
+<!-- Background Music -->
+
+<audio id="music" loop>
+<source src="sanamterikasam.mp3" type="audio/mpeg">
+</audio>
 
 <div class="card">
 
@@ -179,15 +226,11 @@ This little surprise was made especially for you.
 
 <br><br>
 
-On your birthday, I just want to wish you
-all the happiness, success and beautiful moments
-that life can offer.
+On your birthday, I just want to wish you all the happiness, success and beautiful moments that life can offer.
 
 <br><br>
 
-May your smile always shine bright,
-your dreams come true,
-and your heart stay filled with joy.
+May your smile always shine bright, your dreams come true, and your heart stay filled with joy.
 
 <br><br>
 
@@ -195,8 +238,7 @@ Thank you for being such a wonderful person.
 
 <br><br>
 
-No matter where life takes us,
-I hope you always stay happy and blessed.
+No matter where life takes us, I hope you always stay happy and blessed.
 
 <br><br>
 
@@ -210,9 +252,40 @@ I hope you always stay happy and blessed.
 
 </div>
 
+<p style="
+margin-top:20px;
+font-size:18px;
+color:#ff4f8b;
+font-weight:bold;
+">
+Made with ❤️ by Sahil
+</p>
+
+<a href="index.html" class="btn replay-btn">
+💖 Replay Surprise 💖
+</a>
+
 </div>
 
 <script>
+
+/* Continue Music */
+
+window.addEventListener("load",()=>{
+
+if(
+localStorage.getItem("birthdayMusic")
+==="on"
+){
+
+document
+.getElementById("music")
+.play()
+.catch(()=>{});
+
+}
+
+});
 
 /* Falling Rose Petals */
 
@@ -223,15 +296,15 @@ document.createElement("div");
 
 petal.classList.add("petal");
 
-petal.innerHTML = "🌹";
+petal.innerHTML="🌹";
 
-petal.style.left =
+petal.style.left=
 Math.random()*100+"vw";
 
-petal.style.fontSize =
+petal.style.fontSize=
 (20+Math.random()*15)+"px";
 
-petal.style.animationDuration =
+petal.style.animationDuration=
 (5+Math.random()*5)+"s";
 
 document.body.appendChild(petal);
@@ -283,12 +356,12 @@ document.createElement("div");
 
 sparkle.classList.add("sparkle");
 
-sparkle.innerHTML = "✨";
+sparkle.innerHTML="✨";
 
-sparkle.style.left =
+sparkle.style.left=
 Math.random()*100+"vw";
 
-sparkle.style.top =
+sparkle.style.top=
 Math.random()*100+"vh";
 
 document.body.appendChild(sparkle);
