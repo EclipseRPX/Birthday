@@ -20,6 +20,7 @@ width:12px;
 height:12px;
 pointer-events:none;
 animation:fall linear forwards;
+z-index:999;
 }
 
 @keyframes fall{
@@ -39,9 +40,23 @@ opacity:0;
 /* Cake Glow */
 
 .cake{
+font-size:140px;
 filter:drop-shadow(
 0 0 20px rgba(255,79,139,.5)
 );
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
 }
 
 .birthday-text{
@@ -73,6 +88,12 @@ text-shadow:
 </head>
 <body>
 
+<!-- Music -->
+
+<audio id="music" loop>
+<source src="sanamterikasam.mp3" type="audio/mpeg">
+</audio>
+
 <div class="card">
 
 <div class="cake">
@@ -87,6 +108,8 @@ Happy Birthday Ziya ❤️
 
 May your smile always shine brighter
 than the candles on this cake.
+
+<br><br>
 
 May every dream of yours come true
 and may your life be filled with
@@ -104,6 +127,24 @@ Continue 💌
 </div>
 
 <script>
+
+/* Continue Music */
+
+window.addEventListener("load",()=>{
+
+if(
+localStorage.getItem("birthdayMusic")
+==="on"
+){
+
+const music =
+document.getElementById("music");
+
+music.play().catch(()=>{});
+
+}
+
+});
 
 /* Confetti Effect */
 
