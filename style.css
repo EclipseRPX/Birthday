@@ -6,8 +6,7 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-height:100vh;
-overflow:hidden;
+min-height:100vh;
 background:linear-gradient(
 135deg,
 #ffb6d5,
@@ -18,30 +17,38 @@ display:flex;
 justify-content:center;
 align-items:center;
 position:relative;
+overflow:hidden;
+padding:20px;
 }
 
 /* Floating Hearts */
 
 .heart{
-position:absolute;
+position:fixed;
 bottom:-50px;
-animation:floatHeart linear infinite;
+z-index:0;
+opacity:.7;
 pointer-events:none;
+animation:floatHeart linear infinite;
 }
 
 @keyframes floatHeart{
 
 0%{
-transform:translateY(0) rotate(0deg);
+transform:
+translateY(0)
+rotate(0deg);
 opacity:0;
 }
 
 20%{
-opacity:1;
+opacity:.7;
 }
 
 100%{
-transform:translateY(-120vh) rotate(360deg);
+transform:
+translateY(-120vh)
+rotate(360deg);
 opacity:0;
 }
 
@@ -50,21 +57,59 @@ opacity:0;
 /* Glass Card */
 
 .card{
+
+position:relative;
+z-index:10;
+
 width:90%;
-max-width:800px;
+max-width:850px;
+
 padding:40px;
+
 border-radius:30px;
 
-background:rgba(255,255,255,.25);
+background:
+rgba(255,255,255,.28);
 
-backdrop-filter:blur(15px);
+backdrop-filter:
+blur(15px);
+
+-webkit-backdrop-filter:
+blur(15px);
 
 box-shadow:
-0 8px 30px rgba(0,0,0,.1);
+0 8px 30px
+rgba(0,0,0,.1);
 
 text-align:center;
 
-animation:fadeUp 1s ease;
+animation:
+fadeUp 1s ease;
+
+overflow:hidden;
+
+}
+
+/* Card Decorative Hearts */
+
+.card::before{
+
+content:
+"💖 💕 💖 💕 💖";
+
+position:absolute;
+
+top:15px;
+left:0;
+
+width:100%;
+
+font-size:40px;
+
+opacity:.08;
+
+pointer-events:none;
+
 }
 
 @keyframes fadeUp{
@@ -81,21 +126,58 @@ transform:translateY(0);
 
 }
 
+/* Headings */
+
 h1{
+
 font-size:3rem;
+
 color:#ff4f8b;
+
 margin-bottom:20px;
+
+line-height:1.2;
+
 }
 
 h2{
+
 color:#ff4f8b;
+
 margin-bottom:15px;
+
 }
 
+/* Paragraph */
+
 p{
+
 font-size:1.1rem;
+
 line-height:1.8;
+
 color:#444;
+
+}
+
+/* Typewriter Fixed */
+
+.typewriter{
+
+font-size:3rem;
+
+color:#ff4f8b;
+
+line-height:1.2;
+
+white-space:normal;
+
+word-wrap:break-word;
+
+border-right:none;
+
+animation:fadeUp 1.5s ease;
+
 }
 
 /* Buttons */
@@ -110,7 +192,7 @@ padding:15px 35px;
 
 border:none;
 
-border-radius:40px;
+border-radius:50px;
 
 background:#ff4f8b;
 
@@ -118,31 +200,37 @@ color:white;
 
 font-size:16px;
 
+font-weight:600;
+
 cursor:pointer;
 
 text-decoration:none;
 
 transition:.3s;
+
 }
 
 .btn:hover{
 
-transform:scale(1.08);
+transform:
+scale(1.08);
 
 box-shadow:
-0 10px 20px rgba(255,79,139,.3);
+0 10px 20px
+rgba(255,79,139,.3);
 
 }
 
-/* Birthday Cake */
+/* Cake */
 
 .cake{
 
 font-size:120px;
 
-animation:bounce 2s infinite;
-
 cursor:pointer;
+
+animation:
+bounce 2s infinite;
 
 }
 
@@ -158,7 +246,7 @@ transform:translateY(-15px);
 
 }
 
-/* Gift Box */
+/* Gift */
 
 .gift{
 
@@ -172,7 +260,9 @@ transition:.4s;
 
 .gift:hover{
 
-transform:rotate(10deg) scale(1.1);
+transform:
+rotate(10deg)
+scale(1.1);
 
 }
 
@@ -180,9 +270,10 @@ transform:rotate(10deg) scale(1.1);
 
 .final-heart{
 
-font-size:80px;
+font-size:100px;
 
-animation:pulse 1.5s infinite;
+animation:
+pulse 1.5s infinite;
 
 }
 
@@ -202,47 +293,12 @@ transform:scale(1);
 
 }
 
-/* Typewriter */
-
-.typewriter{
-
-overflow:hidden;
-
-white-space:nowrap;
-
-border-right:4px solid #ff4f8b;
-
-animation:
-typing 4s steps(30,end),
-blink .8s infinite;
-
-}
-
-@keyframes typing{
-
-from{
-width:0;
-}
-
-to{
-width:100%;
-}
-
-}
-
-@keyframes blink{
-
-50%{
-border-color:transparent;
-}
-
-}
-
-/* Reasons Cards */
+/* Reason Cards */
 
 .reason{
 
-background:white;
+background:
+rgba(255,255,255,.8);
 
 padding:18px;
 
@@ -251,36 +307,89 @@ border-radius:20px;
 margin:12px 0;
 
 box-shadow:
-0 4px 12px rgba(0,0,0,.08);
+0 4px 12px
+rgba(0,0,0,.08);
 
 transition:.3s;
+
 }
 
 .reason:hover{
 
-transform:translateY(-5px);
+transform:
+translateY(-5px);
 
 }
 
-/* Mobile */
+/* Scroll Support */
+
+.scroll-page{
+
+height:100vh;
+
+overflow-y:auto;
+
+}
+
+/* Mobile Responsive */
 
 @media(max-width:768px){
 
-h1{
-font-size:2rem;
+h1,
+.typewriter{
+
+font-size:2.2rem;
+
+line-height:1.3;
+
 }
 
 .card{
+
 padding:25px;
+
+width:95%;
+
 }
 
 p{
+
 font-size:1rem;
+
 }
 
 .cake,
 .gift{
+
 font-size:90px;
+
+}
+
+.btn{
+
+padding:14px 28px;
+
+font-size:15px;
+
+}
+
+}
+
+/* Small Phones */
+
+@media(max-width:400px){
+
+h1,
+.typewriter{
+
+font-size:1.9rem;
+
+}
+
+p{
+
+font-size:.95rem;
+
 }
 
 }
