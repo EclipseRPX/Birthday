@@ -3,8 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For Ziya ❤️</title>
 
@@ -14,42 +13,63 @@ content="width=device-width, initial-scale=1.0">
 <body>
 
 <!-- Background Music -->
-<audio autoplay loop id="music">
+<audio id="music" loop>
 <source src="sanamterikasam.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Floating Hearts -->
 <div id="hearts"></div>
 
-<!-- Main Card -->
+<!-- Welcome Card -->
 
 <div class="card">
 
 <h1 class="typewriter">
-A Special Surprise For Ziya ❤️
+Happy Birthday Ziya ❤️
 </h1>
 
 <p>
 
-Someone made this with lots of love,
-care and beautiful wishes.
+A beautiful surprise is waiting for you...
 
 <br><br>
 
-Today is all about you ✨
+Made with lots of love and best wishes 💖
 
 </p>
 
-<a href="birthday.html"
-class="btn">
+<button class="btn" onclick="startSurprise()">
 
-Open Surprise 💖
+Start Surprise 💖
 
-</a>
+</button>
 
 </div>
 
 <script>
+
+/* Start Music + Go To Next Page */
+
+function startSurprise(){
+
+const music =
+document.getElementById("music");
+
+music.play();
+
+localStorage.setItem(
+"birthdayMusic",
+"on"
+);
+
+setTimeout(()=>{
+
+window.location.href =
+"birthday.html";
+
+},1000);
+
+}
 
 /* Floating Hearts */
 
@@ -80,18 +100,6 @@ heart.remove();
 }
 
 setInterval(createHeart,300);
-
-/* Try Autoplay Music */
-
-document.body.addEventListener(
-"click",
-()=>{
-document
-.getElementById("music")
-.play();
-},
-{once:true}
-);
 
 </script>
 
